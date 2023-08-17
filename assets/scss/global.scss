@@ -1,0 +1,94 @@
+.b {
+    border: 3px red solid;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: none;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+}
+
+svg {
+    display: flex;
+    flex-shrink: 0;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+label,
+input,
+ul,
+ol,
+li,
+button,
+address {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: $body-font;
+    color: $black;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+address {
+    font-style: normal;
+}
+
+.container {
+    max-width: 1760px;
+    position: relative;
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $black;
+    border-radius: 10px;
+}
