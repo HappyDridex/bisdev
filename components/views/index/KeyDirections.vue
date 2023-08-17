@@ -3,23 +3,33 @@
         <div class="container">
             <div class="directions">
                 <header class="directions-header">
-                    <h2 class="directions-header__title">Ключевые направления работы</h2>
+                    <h2 class="directions-header__title">
+                        Ключевые направления работы
+                    </h2>
                     <p class="page-numeration-title">03</p>
                 </header>
                 <div class="directions-list">
-                    <p class="directions-list__item"
+                    <p
+                        class="directions-list__item"
                         v-for="direction in keyDirections"
-                        :key="direction">
-                        <span class="directions-list__item_highlight">#</span>{{ direction }}
+                        :key="direction"
+                    >
+                        <span class="directions-list__item_highlight">#</span
+                        >{{ direction }}
                     </p>
                 </div>
             </div>
             <div class="product-types">
-                <h2 class="product-types__title">Виды проектируемых продуктов</h2>
+                <h2 class="product-types__title">
+                    Виды проектируемых продуктов
+                </h2>
                 <div class="product-types__cards">
-                    <UiProductTypeCard v-for="card in productTypeCards"
+                    <UiProductTypeCard
+                        v-for="(card, idx) in productTypeCards"
                         :key="card.title"
-                        :card="card">
+                        :card="card"
+                        :class="`card-${idx + 1}`"
+                    >
                         <component :is="card.icon"></component>
                     </UiProductTypeCard>
                 </div>
@@ -35,7 +45,6 @@ import LockShield from "@/components/icons/LockShield.vue";
 import PlanetWeb from "@/components/icons/PlanetWeb.vue";
 import MessageTip from "@/components/icons/MessageTip.vue";
 
-
 const keyDirections = [
     "Разработка ПО",
     "Техническая поддержка и модернизация",
@@ -44,34 +53,38 @@ const keyDirections = [
     "Обеспечение бесперебойной работы ПО, удобства\nэксплуатации и внедрение нового функционала",
     "Разработка дизайн-макетов UX/UI пользовательского\nграфического интерфейса",
     "Непосредственное написание программного\nкода проекта",
-    "Сбор и анализ всех требований заказчика, создание прототипа,\nподготовка требований к программному обеспечению"
+    "Сбор и анализ всех требований заказчика, создание прототипа,\nподготовка требований к программному обеспечению",
 ];
 
 const productTypeCards = [
     {
         title: "Бизнес-системы",
-        description: "ПО для автоматизации и упрощения рабочих процессов: CRM, WMS, ERP системы любого формата, функционала и сложности.",
-        icon: AppSquares
+        description:
+            "ПО для автоматизации и упрощения рабочих процессов: CRM, WMS, ERP системы любого формата, функционала и сложности.",
+        icon: AppSquares,
     },
     {
         title: "Мобильные приложения",
         description: "Мобильное ПО для любой операционной системы.",
-        icon: MobilePhone
+        icon: MobilePhone,
     },
     {
         title: "ПО информационной безопасности",
-        description: "Системы фильтрации траффика и защиты от DDoS-атак, отслеживания локальных и внешних угроз и соблюдения корпоративных требований к безопасности сотрудниками.",
-        icon: LockShield
+        description:
+            "Системы фильтрации траффика и защиты от DDoS-атак, отслеживания локальных и внешних угроз и соблюдения корпоративных требований к безопасности сотрудниками.",
+        icon: LockShield,
     },
     {
         title: "Интернет-системы",
-        description: "Интернет-проекты, сайты, площадки, маркетплейсы и интернет-магазины, сервисы, SaaS-продукты.",
-        icon: PlanetWeb
+        description:
+            "Интернет-проекты, сайты, площадки, маркетплейсы и интернет-магазины, сервисы, SaaS-продукты.",
+        icon: PlanetWeb,
     },
     {
         title: "Средства интернет-связи",
-        description: "Высокозащищенные корпоративные мессенджеры, социальные сети, системы ЭДО.",
-        icon: MessageTip
+        description:
+            "Высокозащищенные корпоративные мессенджеры, социальные сети, системы ЭДО.",
+        icon: MessageTip,
     },
 ];
 </script>
@@ -79,7 +92,6 @@ const productTypeCards = [
 <style scoped lang="scss">
 .key-directions-wrapper {
     .directions {
-
         .directions-header {
             display: flex;
             justify-content: space-between;
@@ -111,9 +123,7 @@ const productTypeCards = [
                     color: $light-blue;
                     font-weight: 600;
                 }
-
             }
-
         }
     }
 
@@ -124,12 +134,37 @@ const productTypeCards = [
             color: $black;
             font-size: 36px;
             font-weight: 700;
+            margin-bottom: 40px;
         }
 
         .product-types__cards {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+            grid-template-areas:
+                "card1 card2 card3"
+                "card4 card5 card3";
+
+            .card-1 {
+                grid-area: card1;
+            }
+            .card-2 {
+                grid-area: card2;
+            }
+            .card-3 {
+                grid-area: card3;
+            }
+            .card-4 {
+                grid-area: card4;
+            }
+            .card-5 {
+                grid-area: card5;
+            }
+            .card-6 {
+                grid-area: card6;
+            }
         }
     }
 }
