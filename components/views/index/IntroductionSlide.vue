@@ -1,7 +1,7 @@
 <template>
     <section class="introduction-slide-wrapper">
-        <div class="container">
-            <div class="company-info b">
+        <div class="container introduction-container">
+            <div class="company-info">
                 <div class="company-info__inner">
                     <h1 class="company-info__title">BIS<span class="d-letter">D</span>e<span class="v-letter">V</span></h1>
                     <p class="company-info__slogan">От простого к сложному
@@ -31,6 +31,10 @@
     background: $light-blue;
     overflow: hidden;
     padding: 0;
+
+    .introduction-container {
+        max-height: 100vh;
+    }
 
     .company-info {
         width: fit-content;
