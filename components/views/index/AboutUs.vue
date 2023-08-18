@@ -81,6 +81,7 @@ const cards = [
 
         .about__main-title {
             font-size: 70px;
+            @include list-circle($light-blue);
         }
     }
 
@@ -120,6 +121,7 @@ const cards = [
     }
 
     .about__illustration-card {
+        background: $white;
         border-radius: 32px;
         overflow: hidden;
         grid-area: illustration-card;
@@ -127,7 +129,7 @@ const cards = [
 
     .about__illustration-card svg {
         height: 100%;
-        width: auto;
+        width: 100%;
     }
 }
 </style>

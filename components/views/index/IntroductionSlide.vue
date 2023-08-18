@@ -1,15 +1,18 @@
 <template>
     <section class="introduction-slide-wrapper">
         <div class="container introduction-container">
+
             <div class="company-info">
-                <div class="company-info__inner">
-                    <h1 class="company-info__title">BIS<span class="d-letter">D</span>e<span class="v-letter">V</span></h1>
-                    <p class="company-info__slogan">От простого к сложному
-                        <br>
-                        Делаем Ваш бизнес эффективнее
-                    </p>
-                </div>
+                <h1 class="company-info__title">BIS<span class="d-letter">D</span>e<span class="v-letter">V</span></h1>
+                <p class="company-info__slogan">От простого к сложному
+                    <br>
+                    Делаем Ваш бизнес эффективнее
+                </p>
             </div>
+
+            <div class="introduction-gradient-box-outer"></div>
+            <div class="introduction-gradient-box-inner"></div>
+
             <address class="company-address">
                 <p class="company-address__comment">Проектирование, разработка<br>и обслуживание любых IT-решений и ПО.</p>
                 <div class="company-address__contacts">
@@ -23,6 +26,7 @@
             </address>
         </div>
 
+        <IconsEllipseGradient class="introduction-ellipse-gradient-icon" />
     </section>
 </template>
 
@@ -31,35 +35,37 @@
     background: $light-blue;
     overflow: hidden;
     padding: 0;
+    position: relative;
+    display: flex;
 
     .introduction-container {
         max-height: 100vh;
+        position: relative;
+        width: 100%;
+
+        .introduction-gradient-box-outer,
+        .introduction-gradient-box-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .introduction-gradient-box-outer {
+            @include gradient-border(1948px, 1174px, 112px, 351px, $light-blue, bottom center, transparent, rgba(255, 255, 255, 0.04));
+            transform: translate(-29%, -36%)
+        }
+
+        .introduction-gradient-box-inner {
+            @include gradient-border(1460px, 895px, 112px, 221px, $light-blue, top left, transparent, rgba(255, 255, 255, 0.05));
+            transform: translate(-18%, -35%)
+        }
     }
 
     .company-info {
-        width: fit-content;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translate(-28%, -36%);
-        border-radius: 385px;
-        padding: 0 84px 75px 178px;
-        background-image: linear-gradient($light-blue, $light-blue), radial-gradient(circle at top left, transparent, rgba(255, 255, 255, 0.03));
-    }
-
-    .company-info__inner {
-        color: $white;
-        width: 100%;
-        border-radius: 201px;
-        padding: 395px 92px 90px 270px;
-        background-image: linear-gradient($light-blue, $light-blue), radial-gradient(circle at bottom left, transparent, rgba(255, 255, 255, 0.05));
-    }
-
-    .company-info,
-    .company-info__inner {
-        border: double 112px transparent;
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
+        position: relative;
+        z-index: 2;
+        padding-top: 100px;
     }
 
 
@@ -70,34 +76,12 @@
         font-size: 138px;
     }
 
-    .d-letter,
-    .v-letter {
-        position: relative;
-
-        &::after {
-            content: "";
-            position: absolute;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: $light-green;
-        }
-    }
-
     .d-letter {
-        &::after {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -60%);
-        }
+        @include ball-in-letter(50%, 50%, translate(-50%, -60%), 32px);
     }
 
     .v-letter {
-        &::after {
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, 100%);
-        }
+        @include ball-in-letter(50%, 0, translate(-50%, 100%), 32px);
     }
 
     .company-info__slogan {
@@ -107,6 +91,7 @@
         font-weight: 500;
         width: max-content;
         line-height: 1.1;
+        opacity: 0.85;
     }
 
     .company-address {
@@ -131,7 +116,15 @@
                 color: $white;
             }
         }
-
     }
+
+    .introduction-ellipse-gradient-icon {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 100;
+        width: 50%;
+    }
+
 }
 </style>

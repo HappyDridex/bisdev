@@ -9,13 +9,10 @@
                     <p class="page-numeration-title">03</p>
                 </header>
                 <div class="directions-list">
-                    <p
-                        class="directions-list__item"
+                    <p class="directions-list__item"
                         v-for="direction in keyDirections"
-                        :key="direction"
-                    >
-                        <span class="directions-list__item_highlight">#</span
-                        >{{ direction }}
+                        :key="direction">
+                        <span class="directions-list__item_highlight">#</span>{{ direction }}
                     </p>
                 </div>
             </div>
@@ -24,12 +21,10 @@
                     Виды проектируемых продуктов
                 </h2>
                 <div class="product-types__cards">
-                    <UiProductTypeCard
-                        v-for="(card, idx) in productTypeCards"
+                    <UiProductTypeCard v-for="(card, idx) in productTypeCards"
                         :key="card.title"
                         :card="card"
-                        :class="`card-${idx + 1}`"
-                    >
+                        :class="`card-${idx + 1}`">
                         <component :is="card.icon"></component>
                     </UiProductTypeCard>
                 </div>
@@ -96,6 +91,7 @@ const productTypeCards = [
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0;
         }
 
         .directions-header__title {
@@ -150,18 +146,23 @@ const productTypeCards = [
             .card-1 {
                 grid-area: card1;
             }
+
             .card-2 {
                 grid-area: card2;
             }
+
             .card-3 {
                 grid-area: card3;
             }
+
             .card-4 {
                 grid-area: card4;
             }
+
             .card-5 {
                 grid-area: card5;
             }
+
             .card-6 {
                 grid-area: card6;
             }

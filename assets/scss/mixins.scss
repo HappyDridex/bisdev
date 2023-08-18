@@ -1,0 +1,70 @@
+@mixin list-circle($color) {
+    position: relative;
+    margin-left: 36px;
+    &::before {
+        content: "";
+        position: absolute;
+        left: -36px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: $color;
+    }
+}
+
+@mixin list-vertical-line($color) {
+    position: relative;
+    margin-left: 31px;
+    &::before {
+        content: "";
+        position: absolute;
+        left: -36px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 11px;
+        height: 100%;
+        border-radius: 40px;
+        background: $color;
+    }
+}
+
+@mixin ball-in-letter($left, $top, $transform, $ballSize) {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: $ballSize;
+        height: $ballSize;
+        border-radius: 50%;
+        background: $light-green;
+
+        left: $left;
+        top: $top;
+        transform: $transform;
+    }
+}
+
+@mixin gradient-border(
+    $width,
+    $height,
+    $borderWidth,
+    $borderRadius,
+    $baseColor,
+    $circlePosition,
+    $radialGradFirstColor,
+    $radialGradSecondColor
+) {
+    width: $width;
+    height: $height;
+    border: double $borderWidth transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    border-radius: $borderRadius;
+    // padding: 395px 92px 90px 270px;
+    background-image: linear-gradient($baseColor, $baseColor),
+        radial-gradient(circle at $circlePosition, $radialGradFirstColor, $radialGradSecondColor);
+}

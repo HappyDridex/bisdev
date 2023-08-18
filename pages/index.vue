@@ -6,6 +6,7 @@
         <ViewsIndexCooperationSchemes />
         <ViewsIndexProcessSteps />
         <ViewsIndexMajorDevelopments />
+        <ViewsIndexTeamMembers />
         <ViewsIndexContactInfo />
     </main>
 </template>
@@ -20,7 +21,7 @@
 section {
     min-height: 100vh;
     background: $light-grey;
-    padding: 60px;
+    padding: 60px 80px;
 }
 
 :deep(.page-numeration-title) {
