@@ -73,7 +73,6 @@ const cards = [
 
 <style scoped lang="scss">
 .about-us-wrapper {
-
     .about__header {
         display: flex;
         align-items: center;
@@ -81,7 +80,24 @@ const cards = [
 
         .about__main-title {
             font-size: 70px;
+            font-weight: 700;
             @include list-circle($light-blue);
+
+            @media(max-width: $breakpoint3) {
+                font-size: 60px;
+            }
+
+            @media (max-width: $breakpoint4) {
+                font-size: 40px;
+            }
+
+            @media (max-width: $breakpoint4) {
+                font-size: 30px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 24px;
+            }
         }
     }
 
@@ -94,6 +110,35 @@ const cards = [
             "card4 card5 illustration-card"
             "card6 card5 illustration-card";
         gap: 16px;
+
+        @media(max-width: $breakpoint2) {
+            grid-template-columns: 1fr 1.15fr;
+            grid-template-areas:
+                "card1 card5"
+                "card4 card5"
+                "card4 illustration-card"
+                "card6 illustration-card"
+                "card6 illustration-card"
+                "card3 card2";
+        }
+
+        @media(max-width: $breakpoint4) {
+            margin-top: 24px;
+            font-size: 24px;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "card1"
+                "card2"
+                "card3"
+                "card4"
+                "card5"
+                "card6"
+        }
+
+        @media (max-width: $breakpoint5) {
+            margin-top: 20px;
+            font-size: 20px;
+        }
     }
 
     .card-1 {
@@ -125,6 +170,10 @@ const cards = [
         border-radius: 32px;
         overflow: hidden;
         grid-area: illustration-card;
+
+        @media(max-width: $breakpoint4) {
+            display: none;
+        }
     }
 
     .about__illustration-card svg {

@@ -41,6 +41,18 @@ const developmentsList = [
 .major-developments-wrapper {
     padding: 33px 0;
 
+    @media(max-width: $breakpoint2) {
+        padding: 30px;
+    }
+
+    @media(max-width: $breakpoint4) {
+        padding: 22px;
+    }
+
+    @media(max-width: $breakpoint5) {
+        padding: 12px;
+    }
+
     .developments-container {
         display: grid;
         grid-template-columns: 1.15fr 1fr;
@@ -48,6 +60,20 @@ const developmentsList = [
         max-width: 1830px;
         margin: 0 auto;
         position: relative;
+
+        @media(max-width: $breakpoint2) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 500px;
+            gap: 20px;
+        }
+
+        @media(max-width: $breakpoint4) {
+            grid-template-rows: 1fr 400px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            grid-template-rows: 1fr 300px;
+        }
 
         .developments-page-title {
             position: absolute;
@@ -62,11 +88,32 @@ const developmentsList = [
         box-shadow: 8px 16px 32px 0px rgba(148, 152, 173, 0.12);
         padding: 27px 48px;
 
+        @media(max-width: $breakpoint4) {
+            padding: 20px 30px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            border-radius: 20px;
+            padding: 12px 20px;
+        }
+
         .developments-articles__title {
             @include list-circle($light-blue);
             font-size: 60px;
             font-weight: 700;
             margin-bottom: 54px;
+
+            @media(max-width: $breakpoint4) {
+                width: min-content;
+                font-size: 40px;
+                margin-bottom: 28px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
         }
     }
 
@@ -74,6 +121,14 @@ const developmentsList = [
         display: flex;
         flex-direction: column;
         gap: 80px;
+
+        @media(max-width: $breakpoint3) {
+            gap: 60px;
+        }
+
+        @media(max-width: $breakpoint4) {
+            gap: 30px;
+        }
     }
 
     .developments-article {
@@ -83,12 +138,34 @@ const developmentsList = [
             font-size: 36px;
             font-weight: 700;
             white-space: pre;
+
+            @media(max-width: $breakpoint3) {
+                white-space: normal;
+            }
+
+            @media(max-width: $breakpoint4) {
+                font-size: 28px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                padding: 12px 0;
+                font-size: 20px;
+            }
         }
 
         .developments-article__description {
             margin-top: 20px;
             font-size: 22px;
             color: $black-muted;
+
+            @media(max-width: $breakpoint4) {
+                font-size: 20px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                margin-top: 14px;
+                font-size: 16px;
+            }
         }
     }
 

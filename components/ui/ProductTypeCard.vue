@@ -31,17 +31,54 @@ defineProps({
     border-radius: 32px;
     border: 1px solid $grey;
 
+    @media(max-width: $breakpoint4) {
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    @media(max-width: $breakpoint5) {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .product-card-icon {
+
+        @media(max-width: $breakpoint4) {
+            :slotted(svg) {
+                width: 30px;
+            }
+        }
+
+    }
+
     .product-card {
         .product-card__title {
             margin-bottom: 16px;
             color: $dark-blue;
             font-size: 26px;
             font-weight: 600;
+
+            @media(max-width: $breakpoint4) {
+                font-size: 22px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 18px;
+            }
         }
+
         .product-card__description {
             font-size: 22px;
             color: $black-muted;
             font-weight: 400;
+
+            @media(max-width: $breakpoint4) {
+                font-size: 18px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 16px;
+            }
         }
     }
 }

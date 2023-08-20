@@ -11,12 +11,21 @@
         height: 16px;
         border-radius: 50%;
         background: $color;
+
+        @media (max-width: $breakpoint5) {
+            width: 12px;
+            height: 12px;
+            left: -26px;
+        }
     }
 }
 
 @mixin list-vertical-line($color) {
     position: relative;
     margin-left: 31px;
+    @media (max-width: $breakpoint5) {
+        margin-left: 26px;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -27,6 +36,10 @@
         height: 100%;
         border-radius: 40px;
         background: $color;
+        @media (max-width: $breakpoint5) {
+            width: 6px;
+            left: -20px;
+        }
     }
 }
 
@@ -40,10 +53,17 @@
         height: $ballSize;
         border-radius: 50%;
         background: $light-green;
-
         left: $left;
         top: $top;
         transform: $transform;
+        @media (max-width: $breakpoint4) {
+            width: $ballSize * 0.6;
+            height: $ballSize * 0.6;
+        }
+        @media (max-width: $breakpoint5) {
+            width: $ballSize * 0.4;
+            height: $ballSize * 0.4;
+        }
     }
 }
 
@@ -64,7 +84,13 @@
     background-clip: padding-box, border-box;
 
     border-radius: $borderRadius;
-    // padding: 395px 92px 90px 270px;
     background-image: linear-gradient($baseColor, $baseColor),
         radial-gradient(circle at $circlePosition, $radialGradFirstColor, $radialGradSecondColor);
+}
+
+@mixin gradient-ellipse($width, $height) {
+    width: $width;
+    height: $height;
+    background: linear-gradient(154deg, #4667ff 0%, rgba(74, 107, 255, 0) 100%);
+    filter: blur(96px);
 }

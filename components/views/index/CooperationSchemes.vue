@@ -4,8 +4,10 @@
             <header class="cooperation-header">
                 <div class="cooperation-header-left">
                     <h2 class="cooperation-header-left__title">Схемы сотрудничества</h2>
-                    <span class="cooperation-header-left__slash">/&nbsp;</span>
-                    <span class="cooperation-header-left__title-comment">Ключевые форматы</span>
+                    <div class="cooperation-header-title-comment">
+                        <span class="cooperation-header-title-comment__slash">/&nbsp;</span>
+                        <span class="cooperation-header-title-comment__title-comment">Ключевые форматы</span>
+                    </div>
                 </div>
                 <p class="page-numeration-title">04</p>
             </header>
@@ -68,6 +70,12 @@ const cooperationSchemes = [
         .cooperation-header-left {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            row-gap: 26px;
+
+            @media(max-width: $breakpoint5) {
+                row-gap: 12px;
+            }
 
             .cooperation-header-left__title {
                 font-size: 70px;
@@ -75,20 +83,49 @@ const cooperationSchemes = [
                 color: $black;
                 margin-right: 16px;
                 @include list-circle($light-blue);
+
+                @media(max-width: $breakpoint3) {
+                    font-size: 60px;
+                }
+
+                @media(max-width: $breakpoint4) {
+                    font-size: 40px;
+                }
+
+                @media(max-width: $breakpoint5) {
+                    font-size: 24px;
+                }
             }
 
-            .cooperation-header-left__slash,
-            .cooperation-header-left__title-comment {
-                position: relative;
-                top: 6px;
-                font-size: 40px;
+            .cooperation-header-title-comment {
+                display: flex;
+
+                .cooperation-header-title-comment__slash,
+                .cooperation-header-title-comment__title-comment {
+                    position: relative;
+                    top: 6px;
+                    font-size: 40px;
+                    font-weight: 700;
+                    width: max-content;
+
+                    @media(max-width: $breakpoint3) {
+                        font-size: 36px;
+                    }
+
+                    @media(max-width: $breakpoint4) {
+                        font-size: 28px;
+                    }
+
+                    @media(max-width: $breakpoint5) {
+                        font-size: 20px;
+                    }
+                }
             }
 
-            .cooperation-header-left__slash {
+            .cooperation-header-title-comment__slash {
                 color: $light-blue;
             }
         }
-
     }
 
     .cooperation-comment {
@@ -96,6 +133,20 @@ const cooperationSchemes = [
         color: $black-muted;
         margin-top: 40px;
         font-size: 24px;
+
+        @media(max-width: $breakpoint3) {
+            width: 100%;
+            font-size: 22px;
+        }
+
+        @media(max-width: $breakpoint4) {
+            font-size: 18px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            margin-top: 24px;
+            font-size: 16px;
+        }
     }
 
     .cooperation__shemes {
@@ -104,6 +155,17 @@ const cooperationSchemes = [
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
 
+        @media(max-width: $breakpoint2) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @media(max-width: $breakpoint4) {
+            margin-top: 40px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            margin-top: 30px;
+        }
     }
 
     .cooperation_footer {
@@ -115,11 +177,29 @@ const cooperationSchemes = [
         position: relative;
         overflow: hidden;
 
+        @media(max-width: $breakpoint4) {
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 10px 15px 28px 0px rgba(53, 86, 238, 0.37);
+        }
+
+        @media(max-width: $breakpoint5) {
+            padding: 18px;
+        }
+
         .cooperation_footer__comment {
             font-size: 27px;
             color: $white;
             position: relative;
             z-index: 1;
+
+            @media(max-width: $breakpoint3) {
+                font-size: 22px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 18px;
+            }
         }
 
         .cooperation_footer__icon {

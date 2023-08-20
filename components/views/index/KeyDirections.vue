@@ -91,13 +91,25 @@ const productTypeCards = [
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 0 20px 0;
         }
 
         .directions-header__title {
             color: $black;
             font-size: 40px;
             font-weight: 700;
+
+            @media(max-width: $breakpoint3) {
+                font-size: 36px;
+            }
+
+            @media(max-width: $breakpoint4) {
+                font-size: 30px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                font-size: 24px;
+            }
         }
 
         .directions-list {
@@ -115,6 +127,26 @@ const productTypeCards = [
                 border-radius: 32px;
                 background: $white;
 
+                @media(max-width: $breakpoint2) {
+                    white-space: break-spaces;
+                    word-wrap: break-word;
+                }
+
+                @media(max-width: $breakpoint3) {
+                    font-size: 20px;
+                }
+
+                @media(max-width: $breakpoint4) {
+                    padding: 15px 20px;
+                    border-radius: 20px;
+                }
+
+                @media(max-width: $breakpoint5) {
+                    font-size: 16px;
+                    padding: 10px 15px;
+                    border-radius: 14px;
+                }
+
                 .directions-list__item_highlight {
                     color: $light-blue;
                     font-weight: 600;
@@ -126,12 +158,26 @@ const productTypeCards = [
     .product-types {
         margin-top: 52px;
 
+        @media(max-width: $breakpoint5) {
+            margin-top: 30px;
+        }
+
         .product-types__title {
             color: $black;
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 40px;
+
+            @media(max-width: $breakpoint3) {
+                font-size: 30px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
         }
+
 
         .product-types__cards {
             width: 100%;
@@ -142,6 +188,31 @@ const productTypeCards = [
             grid-template-areas:
                 "card1 card2 card3"
                 "card4 card5 card3";
+
+            @media(max-width: $breakpoint2) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 16px;
+
+                grid-template-areas:
+                    "card1 card5"
+                    "card2 card4"
+                    "card3 card3";
+            }
+
+            @media(max-width: $breakpoint4) {
+                grid-template-areas:
+                    "card1 card1"
+                    "card5 card5"
+                    "card2 card2"
+                    "card4 card4"
+                    "card3 card3";
+            }
+
+            @media(max-width: $breakpoint5) {
+                display: flex;
+                flex-direction: column;
+            }
 
             .card-1 {
                 grid-area: card1;

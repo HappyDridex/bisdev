@@ -18,4 +18,8 @@
 body {
     margin: 0;
 }
+
+.b {
+    border: 3px red solid;
+}
 </style>

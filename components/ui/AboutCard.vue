@@ -49,11 +49,24 @@ defineProps({
     width: 100%;
     position: relative;
 
+    @media(max-width: $breakpoint5) {
+        border-radius: 20px;
+        padding: 15px;
+    }
+
     .about-card__title {
         color: $light-blue;
         font-size: 27px;
         font-weight: 600;
         margin-bottom: 16px;
+
+        @media(max-width: $breakpoint3) {
+            font-size: 24px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            font-size: 16px;
+        }
     }
 
     .about-card__description,
@@ -62,6 +75,14 @@ defineProps({
         font-size: 24px;
         position: relative;
         z-index: 1;
+
+        @media(max-width: $breakpoint3) {
+            font-size: 18px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            font-size: 14px;
+        }
     }
 
     .about-card__icon {
@@ -69,6 +90,14 @@ defineProps({
         right: 25px;
         bottom: 8px;
         z-index: 0;
+
+        :slotted(svg) {
+            width: 80px;
+
+            @media(max-width: $breakpoint5) {
+                width: 60px;
+            }
+        }
     }
 
     .about-card__list {
@@ -76,6 +105,10 @@ defineProps({
             list-style: initial;
             list-style-position: outside;
             margin-left: 36px;
+
+            @media(max-width: $breakpoint5) {
+                margin-left: 18px;
+            }
         }
     }
 

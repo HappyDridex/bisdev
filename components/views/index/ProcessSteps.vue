@@ -1,6 +1,6 @@
 <template>
     <section class="process-wrapper">
-        <div class="container">
+        <div class="container process-container">
             <header class="process-header">
                 <div class="process-header-top">
                     <h2 class="process-header-top__title">Процесс</h2>
@@ -10,7 +10,9 @@
                 <p class="process-header__comment">Процесс производства IT-продукта от начальных требований до релиза.</p>
             </header>
             <div class="process-steps">
+
                 <IconsDashedLine class="process-steps__dashed-line-icon" />
+
                 <ul class="process-steps__list">
                     <UiProcessStepItem v-for="(step, idx) in processSteps"
                         :key="step.title"
@@ -26,8 +28,10 @@
                 </ul>
             </div>
         </div>
+
         <div class="process-gradient-box"></div>
-        <!-- <IconsEllipseGradient class="b process__ellipse-gradient-icon" /> -->
+        <div class="process-ellipse-gradient-icon"></div>
+
     </section>
 </template>
 
@@ -74,9 +78,7 @@ const processSteps = [
             "Выпуск релиза"]
     },
 
-]
-
-
+];
 </script>
 
 
@@ -85,6 +87,11 @@ const processSteps = [
     background: $light-blue;
     position: relative;
     overflow: hidden;
+
+    .process-container {
+        position: relative;
+        z-index: 1;
+    }
 
     .process-header-top {
         display: flex;
@@ -97,6 +104,18 @@ const processSteps = [
         font-weight: 700;
         color: $white;
         @include list-circle($light-green);
+
+        @media(max-width: $breakpoint3) {
+            font-size: 60px;
+        }
+
+        @media(max-width: $breakpoint4) {
+            font-size: 40px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            font-size: 24px;
+        }
     }
 
     .process-header__comment {
@@ -105,11 +124,35 @@ const processSteps = [
         margin-top: 40px;
         color: $white;
         opacity: 0.8;
+
+        @media(max-width: $breakpoint2) {
+            width: 60%;
+        }
+
+        @media(max-width: $breakpoint3) {
+            font-size: 20px;
+            width: 80%;
+        }
+
+        @media(max-width: $breakpoint5) {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
     }
 
     .process-steps {
         margin-top: 120px;
         position: relative;
+
+        @media(max-width: $breakpoint3) {
+            margin-top: 38px;
+        }
+
+        @media(max-width: $breakpoint5) {
+            margin-top: 24px;
+        }
 
         .process-steps__list {
             display: grid;
@@ -117,6 +160,11 @@ const processSteps = [
             position: relative;
             z-index: 1;
             gap: 16px;
+
+            @media(max-width: $breakpoint2) {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
         }
 
         .process-steps__dashed-line-icon {
@@ -124,13 +172,24 @@ const processSteps = [
             position: absolute;
             top: 50px;
             z-index: 0;
+
+            @media(max-width: $breakpoint2) {
+                left: 52px;
+                width: 100%;
+                transform-origin: left top;
+                transform: rotate(90deg);
+            }
         }
 
     }
 
-    .process__ellipse-gradient-icon {
+    .process-ellipse-gradient-icon {
         position: absolute;
-        // TODO
+        top: -12%;
+        left: 3%;
+        z-index: 0;
+        transform: rotate(116deg);
+        @include gradient-ellipse(2119px, 904px);
     }
 
     .process-gradient-box {
@@ -140,6 +199,14 @@ const processSteps = [
         top: 0;
         z-index: 0;
         transform: translate(40%, -40%);
+
+        @media(max-width: $breakpoint4) {
+            @include gradient-border(calc(77% + 162px), calc(61% + 162px), 102px, 261px, $light-blue, top center, transparent, rgba(255, 255, 255, 0.08));
+        }
+
+        @media(max-width: $breakpoint5) {
+            @include gradient-border(77%, 51%, 72px, 221px, $light-blue, top center, transparent, rgba(255, 255, 255, 0.08));
+        }
     }
 
 }
