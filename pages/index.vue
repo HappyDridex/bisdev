@@ -6,7 +6,7 @@
         <ViewsIndexCooperationSchemes />
         <ViewsIndexProcessSteps />
         <ViewsIndexMajorDevelopments />
-        <ViewsIndexTeamMembers />
+        <ViewsIndexTeamMembers v-if="false" />
         <ViewsIndexContactInfo />
     </main>
 </template>

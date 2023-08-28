@@ -11,7 +11,8 @@
             </header>
             <div class="process-steps">
 
-                <IconsDashedLine class="process-steps__dashed-line-icon" />
+                <IconsDashedLineHorizontal class="process-steps__dashed-line-icon-horizontal" />
+                <IconsDashedLineVertical class="process-steps__dashed-line-icon-vertical" />
 
                 <ul class="process-steps__list">
                     <UiProcessStepItem v-for="(step, idx) in processSteps"
@@ -167,19 +168,38 @@ const processSteps = [
             }
         }
 
-        .process-steps__dashed-line-icon {
-            width: 85%;
+        .process-steps__dashed-line-icon-horizontal {
             position: absolute;
-            top: 50px;
             z-index: 0;
+            width: 85%;
+            top: 50px;
 
             @media(max-width: $breakpoint2) {
-                left: 52px;
-                width: 100%;
-                transform-origin: left top;
-                transform: rotate(90deg);
+                display: none;
             }
         }
+
+        .process-steps__dashed-line-icon-vertical {
+            display: none;
+
+            @media(max-width: $breakpoint2) {
+                position: absolute;
+                top: 0;
+                left: 50px;
+                z-index: 0;
+                display: inline-block;
+                height: 83%;
+            }
+
+            @media(max-width: $breakpoint4) {
+                left: 28px;
+            }
+
+            @media(max-width: $breakpoint5) {
+                left: 18px;
+            }
+        }
+
 
     }
 
